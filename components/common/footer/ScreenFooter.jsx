@@ -1,51 +1,44 @@
 // components/Footer.js
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, StyleSheet, Image,  } from "react-native";
+import styles from "./screenFooter.style"
 
-const ScreenFooter = ({ navigation }) => {
+
+const ScreenFooter = ({
+  leftIconURL,
+  middleIconURL,
+  rightIconURL,
+  sideBtnDimension,
+  middleBtnDimension,
+  handlePress,
+}) => {
   return (
-    <View style={styles.footer}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Screen1")}
-      >
-        <Text style={styles.buttonText}>Screen 1</Text>
+    <SafeAreaView style={styles.footerContainer} >
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Image
+          source={leftIconURL}
+          style={styles.btnImg(sideBtnDimension)}
+          resizeMode="cover"
+        />
+        <Text>Progress</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Screen2")}
-      >
-        <Text style={styles.buttonText}>Screen 2</Text>
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Image
+          source={middleIconURL}
+          style={styles.btnImg(middleBtnDimension)}
+          resizeMode="cover"
+        />
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Screen3")}
-      >
-        <Text style={styles.buttonText}>Screen 3</Text>
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Image
+          source={rightIconURL}
+          style={styles.btnImg(sideBtnDimension)}
+          resizeMode="cover"
+        />
+        <Text>Log Streaks</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  footer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#eee",
-    padding: 10,
-    position: "absolute",
-    bottom: 7,
-    left: 0,
-    right: 0,
-  },
-  button: {
-    padding: 10,
-    backgroundColor: "#ddd",
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 16,
-  },
-});
 
 export default ScreenFooter;
