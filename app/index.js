@@ -34,7 +34,10 @@ const Home = () => {
             <Welcome />
           </View>
         </ScrollView>
-        <ScreenFooter />
+        <ScreenFooter 
+        middleIconURL={icons.grid} 
+        leftIconURL={icons.menu} 
+        rightIconURL={icons.search} sideBtnDimensions="50%" middleBtnDimension="50%" />
       </SafeAreaView>
     );
 }
